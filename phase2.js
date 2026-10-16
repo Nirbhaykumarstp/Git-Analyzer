@@ -1,13 +1,11 @@
-let userName = "AdtyaGupta72"
-let repo = "PTPJan526"
-
-// let branchName="feature/AddIncome"
 let errordiv = document.getElementById("error-msg")
 const Totaldata = {}
 const activeDays = {}
 const commitsData = {}
 let callingBranches = async () => {
     try {
+        let userName = document.getElementById("userName").value
+        let repo = document.getElementById("repoName").value
         let branchesAPI = await fetch(`https://api.github.com/repos/${userName}/${repo}/branches?per_page=100`)
         let developerAPI = await fetch(`https://api.github.com/repos/${userName}/${repo}/contributors`)
         let prAPI = await fetch(`https://api.github.com/search/issues?q=repo:${userName}/${repo}+is:pr`)
@@ -23,7 +21,7 @@ let callingBranches = async () => {
         Totaldata.totaldevelopers = devArr.length
         Totaldata.totalPrs = prObj.total_count
 
-        document.getElementById("repo-name").innerText=repo
+        document.getElementById("repo-name").innerText = repo
         document.getElementById("totalbranch").innerText = Totaldata.totalbranches
         document.getElementById("totaldevlprs").innerText = Totaldata.totaldevelopers
         Totaldata.totalCommits = 0
@@ -77,7 +75,7 @@ let callingBranches = async () => {
                 const row = document.createElement("tr")
                 console.log(commitsData[`${obj.login}`])
                 let avgCommitperactiveDays = Math.round((commitsData[`${obj.login}`].length) / (activeDays[`${obj.login}`].size))
-                let consistency=Math.round((((activeDays[`${obj.login}`].size)/30)*100))
+                let consistency = Math.round((((activeDays[`${obj.login}`].size) / 30) * 100))
                 row.innerHTML = `
                     <td class="inline py-1"><span><img src="${obj.avatar_url}" height="30" width="30">${obj.login}</span></td>
                     <td>${obj.contributions}</td>
@@ -88,7 +86,7 @@ let callingBranches = async () => {
             })
         }
         fetchTotalcommit()
-        
+
         console.log(commits)
         console.log(dynamicBranch)
     }
@@ -99,4 +97,7 @@ let callingBranches = async () => {
         // document.getElementById("totalbranch").innerText=0
     }
 }
-// callingBranches()
+document.getElementById("analyze").addEventListener("click", () => {
+    callingBranches()
+})
+

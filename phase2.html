@@ -18,21 +18,18 @@
         </div>
     </nav>
     <main class="bg-gray-600 sm:min-h-screen flex justify-center align-middle">
-        <div class=" px-8 py-4 bg-white shadow-md dark:bg-gray-800">
-            <label for="username" class="block text-sm text-gray-500 dark:text-gray-300">Username</label>
-            <input type="text" placeholder="John Doe"
-                class="block bg-gray-50 cursor-not-allowed mt-2 w-full placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg border border-gray-200 px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300" />
-            <button
-                class="flex items-center px-4 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-400 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
-                <svg class="w-5 h-5 mx-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd"
-                        d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z"
-                        clip-rule="evenodd" />
-                </svg>
-
-                <span class="mx-1 bg-blue-400">Refresh</span>
+        <div class=" px-8 py-4 bg-white shadow-md dark:bg-gray-800 flex flex-col gap-10">
+            <label for="user" class="block text-xl text-white px-2 py-2">Username</label>
+            <input type="text" placeholder="Enter the UserName" id="userName"
+                class="block bg-gray-500  mt-2 w-full placeholder-black/70 dark:placeholder-black rounded-lg border border-black px-5 py-2.5 text-black focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300" />
+            <label for="repo" class="block text-xl text-white px-2 py-2">RepoName</label>
+            <input type="text" placeholder="Enter the RepoName" id="repoName"
+                class="block bg-gray-500  mt-2 w-full placeholder-black/70 dark:placeholder-black rounded-lg border border-black px-5 py-2.5 text-black focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300" />
+            <button class="text-xl dark:bg-blue-200 text-white dark:border-2 dark:border-white in-hover:cursor-pointer" id="analyze">
+                Analyze
             </button>
         </div>
+
         <div class="max-w-2xl m-auto  px-8 py-4 bg-white rounded-lg shadow-md dark:bg-gray-800 ">
             <div class="flex items-center gap-10">
                 <h2><a href=""><span class="text-2xl font-light text-white dark:text-gray-400"
@@ -90,6 +87,6 @@
         </div>
     </main>
 </body>
-<script type="module" src="phase2.js"></script>
+<script src="phase2.js"></script>
 
 </html>
