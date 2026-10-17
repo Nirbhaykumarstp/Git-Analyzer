@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <nav class="bg-white shadow min-w-full dark:bg-gray-800 sm:min-w-full">
+    <nav class="bg-white dark:shadow-2xl min-w-full dark:bg-gray-800 sm:min-w-full">
         <div
             class="container flex items-center justify-center p-6 mx-auto text-gray-600 capitalize dark:text-gray-300 gap-10">
             <li class="list-none flex-1">
@@ -17,20 +17,30 @@
             </li>
         </div>
     </nav>
-    <main class="bg-gray-600 sm:min-h-screen flex justify-center align-middle">
+    <main class="bg-gray-600 sm:min-h-screen flex" id="main">
         <div class=" px-8 py-4 bg-white shadow-md dark:bg-gray-800 flex flex-col gap-10">
-            <label for="user" class="block text-xl text-white px-2 py-2">Username</label>
+            <label for="user" class="block text-xl text-white">Username</label>
             <input type="text" placeholder="Enter the UserName" id="userName"
-                class="block bg-gray-500  mt-2 w-full placeholder-black/70 dark:placeholder-black rounded-lg border border-black px-5 py-2.5 text-black focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300" />
-            <label for="repo" class="block text-xl text-white px-2 py-2">RepoName</label>
+                class="block bg-gray-500  mt-1 w-full placeholder-black/70 dark:placeholder-black rounded-lg border border-black px-2 py-2 text-black focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300" />
+            <label for="repo" class="block text-xl text-white ">RepoName</label>
             <input type="text" placeholder="Enter the RepoName" id="repoName"
-                class="block bg-gray-500  mt-2 w-full placeholder-black/70 dark:placeholder-black rounded-lg border border-black px-5 py-2.5 text-black focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300" />
-            <button class="text-xl dark:bg-blue-200 text-white dark:border-2 dark:border-white in-hover:cursor-pointer" id="analyze">
+                class="block bg-gray-500  mt-1 w-full placeholder-black/70 dark:placeholder-black rounded-lg border border-black px-2 py-2 text-black focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300" />
+            <label for="period" class="text-white">Select Time period for Consistency</label>
+            <select name="period" id="period" class="bg-white rounded-2xl">
+                <option value="7">1 Week</option>
+                <option value="14">2 Week</option>
+                <option value="30">1 Month</option>
+                <option value="60">2 Month</option>
+                <option value="90">3 Month</option>
+                <option value="365">1 Year</option>
+                <option value="730">2 Year</option>
+            </select>
+            <button class="text-xl bg-blue-500 text-white border-2 border-white in-hover:cursor-pointer" id="analyze">
                 Analyze
             </button>
         </div>
 
-        <div class="max-w-2xl m-auto  px-8 py-4 bg-white rounded-lg shadow-md dark:bg-gray-800 ">
+        <div class="max-w-2xl m-auto  px-8 py-4 bg-white rounded-lg shadow-md dark:bg-gray-800 " id="card">
             <div class="flex items-center gap-10">
                 <h2><a href=""><span class="text-2xl font-light text-white dark:text-gray-400"
                             id="repo-name"></span></a></h2>
@@ -50,16 +60,6 @@
                         </tr>
                     </thead>
                     <tbody class="text-lg text-white" id="branch-commit-pr">
-                        <!-- <tr>
-                            <td>Main</td>
-                            <td>10</td>
-                            <td>1</td>
-                        </tr>
-                        <tr>
-                            <td>development</td>
-                            <td>14</td>
-                            <td>1</td>
-                        </tr> -->
                     </tbody>
                 </table>
                 <table class="min-w-1/2 divide-y divide-gray-200">
@@ -69,22 +69,18 @@
                             <th class="text-lg">Developer</th>
                             <th class="text-lg">Total Contribution</th>
                             <th class="text-lg">Avg Commits/activedays</th>
-                            <th class="text-lg">Consistency (%) monthly</th>
+                            <th class="text-lg">Consistency (%)</th>
                         </tr>
                     </thead>
                     <tbody class="text-lg text-white text-center" id="developer-commits">
-                        <!-- <tr>
-                            <td>Nirbhaykumarstp</td>
-                            <td>Main</td>
-                        </tr>
-                        <tr>
-                            <td>Nirbhaykumarstp</td>
-                            <td>Development</td>
-                        </tr> -->
                     </tbody>
                 </table>
             </div>
         </div>
+        <div class="m-auto" id="heading">
+            <h1 class="text-4xl text-white text-shadow-amber-50 font-bold font-sans">Analyze your Git Repo Here !</h1>
+        </div>
+        <div class="text-xl text-white" id="error-msg"></div>
     </main>
 </body>
 <script src="phase2.js"></script>

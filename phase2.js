@@ -1,9 +1,15 @@
 let errordiv = document.getElementById("error-msg")
+let card=document.getElementById("card")
+card.style.display="none"
+errordiv.style.display="none"
 const Totaldata = {}
 const activeDays = {}
 const commitsData = {}
 let callingBranches = async () => {
     try {
+        errordiv.style.display="none"
+        let period=Number(document.getElementById("period").value)
+        console.log(period)
         let userName = document.getElementById("userName").value
         let repo = document.getElementById("repoName").value
         let branchesAPI = await fetch(`https://api.github.com/repos/${userName}/${repo}/branches?per_page=100`)
@@ -75,9 +81,9 @@ let callingBranches = async () => {
                 const row = document.createElement("tr")
                 console.log(commitsData[`${obj.login}`])
                 let avgCommitperactiveDays = Math.round((commitsData[`${obj.login}`].length) / (activeDays[`${obj.login}`].size))
-                let consistency = Math.round((((activeDays[`${obj.login}`].size) / 30) * 100))
+                let consistency = Math.round((((activeDays[`${obj.login}`].size) / period) * 100))
                 row.innerHTML = `
-                    <td class="inline py-1"><span><img src="${obj.avatar_url}" height="30" width="30">${obj.login}</span></td>
+                    <td class="inline py-1"><span><img src="${obj.avatar_url}" height="35" width="35" class='rounded-xl'>${obj.login}</span></td>
                     <td>${obj.contributions}</td>
                     <td>${avgCommitperactiveDays}</td>
                     <td>${consistency} %</td>
@@ -86,18 +92,17 @@ let callingBranches = async () => {
             })
         }
         fetchTotalcommit()
-
-        console.log(commits)
-        console.log(dynamicBranch)
     }
     catch (error) {
         console.log(error.message)
-        document.getElementById("actual-msg").innerText = error.message
-        errordiv.display = "block"
+        errordiv.innerText = error.message
+        errordiv.style.display = "block"
         // document.getElementById("totalbranch").innerText=0
     }
 }
 document.getElementById("analyze").addEventListener("click", () => {
+    card.style.display="block"
+    document.getElementById("heading").style.display="none"
     callingBranches()
 })
 
