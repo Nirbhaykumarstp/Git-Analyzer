@@ -83,7 +83,7 @@ let callingBranches = async () => {
                 let avgCommitperactiveDays = Math.round((commitsData[`${obj.login}`].length) / (activeDays[`${obj.login}`].size))
                 let consistency = Math.round((((activeDays[`${obj.login}`].size) / period) * 100))
                 row.innerHTML = `
-                    <td class="inline py-1"><span><img src="${obj.avatar_url}" height="35" width="35" class='rounded-xl'>${obj.login}</span></td>
+                    <td class="py-1"><span class="flex flex-row gap-2"><img src="${obj.avatar_url}" height="35" width="35" style="border-radius:50%;">${obj.login}</span></td>
                     <td>${obj.contributions}</td>
                     <td>${avgCommitperactiveDays}</td>
                     <td>${consistency} %</td>
