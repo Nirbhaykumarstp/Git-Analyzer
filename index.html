@@ -18,8 +18,8 @@
             </li>
         </div>
     </nav>
-    <main class="bg-gray-600 sm:min-h-screen flex" id="main">
-        <div class=" px-8 py-4 bg-white shadow-md dark:bg-gray-800 flex flex-col gap-5">
+    <main class="bg-gray-600 flex sm:min-h-screen lg:min-h-screen md:min-h-screen" id="main">
+        <div class=" px-8 py-4 bg-white shadow-md dark:bg-gray-800 flex flex-col gap-5 lg:max-w-full">
             <label for="user" class="block text-xl text-white">Username</label>
             <input type="text" placeholder="Enter the UserName" id="userName"
                 class="block bg-gray-500  mt-1 w-full placeholder-black/70 dark:placeholder-black rounded-lg border border-black px-4 py-1 text-black focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300" />
@@ -36,7 +36,8 @@
                 <option value="365">1 Year</option>
                 <option value="730">2 Year</option>
             </select>
-            <button class="text-xl bg-gray-600 text-white border-2 border-white hover:cursor-pointer  rounded-lg py-1" id="analyze">
+            <button class="text-xl bg-gray-600 text-white border-2 border-white hover:cursor-pointer  rounded-lg py-1"
+                id="analyze">
                 Analyze
             </button>
         </div>
